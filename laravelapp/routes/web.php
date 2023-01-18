@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\RestappController;
 use App\Http\Controllers\BoardController;
 use App\Http\Middleware\HelloMiddleware;
 
@@ -45,4 +46,10 @@ Route::get('board/add',[BoardController::class, 'add']);
 Route::post('board/add',[BoardController::class, 'create']);
 Route::get('hello/session',[HelloController::class, 'ses_get']);
 Route::post('hello/session',[HelloController::class, 'ses_put']);
+Route::resource('rest',RestappController::class);
+Route::get('hello/rest',[HelloController::class, 'rest']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

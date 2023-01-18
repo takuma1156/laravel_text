@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 <style>
-  .pagination { font-size:10px;}
+  .pagination { font-size:10pt;}
   .pagination li { display:inline-block}
   tr th a:link {color: white;}
   tr th a:visited {color: white;}
@@ -21,7 +21,7 @@
       <tr>
         <th><a href="/hello?sort=name">name</a></th>
         <th><a href="/hello?sort=mail">mail</a></th>
-        <th><a href="/hello?sort=age">age</a></th><tr>
+        <th><a href="/hello?sort=age">age</a></th>
       </tr>
       @foreach($items as $item)
         <tr>
@@ -31,7 +31,7 @@
         </tr>
       @endforeach
     </table>
-      {{ $items->appends(['sort' => $sort])->links()}}
+      {{ $items->appends(['sort' => $sort])-> links() }}
 @endsection
 
 @section('footer')

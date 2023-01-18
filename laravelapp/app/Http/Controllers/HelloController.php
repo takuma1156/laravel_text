@@ -14,7 +14,7 @@ class HelloController extends Controller
     {
         $sort = $request->sort;
         //$items = DB::table('people')->orderBy('age','asc')->simplePaginate(2);
-        $items = Person::orderBy($sort,'asc')->Paginate(2);
+        $items = Person::orderBy($sort,'asc')->paginate(2);
         $param = ['items' => $items, 'sort' => $sort];
         return view('hello.index', $param);
     }
@@ -106,6 +106,11 @@ class HelloController extends Controller
         $msg = $request->input;
         $request->session()->put('msg', $msg);
         return redirect('hello/session');
+    }
+    
+    public function rest(Request $request)
+    {
+        return view('hello.rest');
     }
 }
 
