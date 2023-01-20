@@ -48,8 +48,11 @@ Route::get('hello/session',[HelloController::class, 'ses_get']);
 Route::post('hello/session',[HelloController::class, 'ses_put']);
 Route::resource('rest',RestappController::class);
 Route::get('hello/rest',[HelloController::class, 'rest']);
+Route::get('hello/auth', [HelloController::class, 'getAuth']);
+Route::post('hello/auth', [HelloController::class, 'postAuth']);
+
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
