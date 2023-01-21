@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello',[HelloController::class,'index']);
+Route::get('hello',[HelloController::class,'index'])->middleware('auth');
 Route::post('hello',[HelloController::class,'post']);
 Route::get('hello/add',[HelloController::class,'add']);
 Route::post('hello/add',[HelloController::class,'create']);
